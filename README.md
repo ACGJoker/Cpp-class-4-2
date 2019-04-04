@@ -42,6 +42,36 @@
 2. virtual具有继承性，在派生类覆盖基类虚成员函数时，既可以使用virtual，也可以不用virtual来限定，二者没有差别，默认派生类中的重写函数是具有virtual的。
 
 
+# 4-4
+
+## 虚析构函数
+### 
+
+```
+//源文件：虚析构函数.cpp
+TwoDShape*p;
+p=new Rectangle(...);
+
+delete p;//执行绑定TwoDShape析构函数,不执行Rectangle析构
+//    ~TwoDShape()
+//    {
+//        cout <<"destruct a TwoDShape" <<endl;
+//    }
+```
+- 虚析构函数
+```
+    virtual ~TwoDShape(){...}
+```
+## 纯虚函数
+`virtual void getArea()=0;//纯虚函数，无函数体，派生类中实现`
+- 抽象类:有一个或多个纯虚函数
+抽象类使用时：
+1. 不能定义抽象类对象  TwoDShape obj（...）
+2. 可以定义抽象类指针或引用 
+
+
+
+
 
 
 
